@@ -1,0 +1,20 @@
+{
+	"curly": true,
+	"eqnull": true,
+	"undef": true,
+	"browser": true,
+	"laxcomma": true,
+	"noarg": true,
+	"expr": true,
+	"latedef": true,
+	"immed": true,
+	"sub": true,
+	"globals": {
+		"jQuery": true,
+		"dispatcher": true,
+		"console" : true,
+		"wp" : true,
+		"ComponentForm" : true,
+		"ComponentUpload" : true
+	}
+}

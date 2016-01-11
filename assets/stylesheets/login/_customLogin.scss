@@ -1,0 +1,160 @@
+body.login {
+
+	background-color: $bgColor;
+
+	div#login {
+		background-color: transparent;
+		padding: 8% 0 0 0;
+		width: 320px;
+
+		#login_error {
+			background-color: #dd3d36;
+			border: none;
+			@include box-shadow(none);
+			color: #fff;
+			text-align: center;
+
+			a {
+				color: #fff;
+			}
+		}
+
+		.message {
+			background-color: #00a0d2;
+			border: none;
+			@include box-shadow(none);
+			color: #fff;
+			text-align: center;
+
+			a {
+				color: #fff;
+			}
+		}
+
+		h1 a {}
+		form#loginform,
+		form#lostpasswordform {
+			background-color: transparent;
+			@include box-shadow(none);
+			margin-top: 20px;
+			padding: 0;
+
+			p label,
+			p.cptch_block {
+				color: $primaryColor;
+				font-weight: 700;
+				font-size: 12px;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+
+			input {
+				&#user_login,
+				&#user_pass {
+					background-color: transparent;
+					@include border-radius(0);
+					border: 1px solid $primaryColor;
+					padding: 2px 20px 0px;
+					height: 58px;
+					outline: 0;
+					color: $primaryColor;
+					font-weight: 700;
+					font-size: 14px;
+					@include box-shadow(none);
+					margin-top: 5px;
+				}
+			}
+			p {
+				&.submit input#wp-submit {
+					background-color: $submitColor;
+					border: 1px solid $submitColor;
+					@include border-radius(0);
+					@include box-shadow(none);
+					@include font-size(18px);
+					font-weight: 700;
+					height: auto;
+					line-height: 1em;
+					margin-top: 50px;
+					padding: 24px 52px 20px;
+					@include transition(background .3s ease);
+					width: 100%;
+
+					&:hover {
+						color: $submitColor;
+						background-color: transparent !important;
+					}
+				}
+				&.forgetmenot {
+					position: relative;
+				}
+				&.forgetmenot label.active:after {
+					content: '\f147';
+					font-family: dashicons;
+					font-size: 22px;
+					position: absolute;
+					right: 103px;
+					top: 2px;
+				}
+				&.forgetmenot label:before {
+					content: "";
+					display: inline-block;
+					margin-right: 18px;
+					width: 26px;
+					height: 26px;
+					@include border-radius(50%);
+					background-color: transparent;
+					border: 2px solid $primaryColor;
+					position: absolute;
+					left: 0;
+					top: -5px;
+				}
+				&.forgetmenot label {
+					color: $primaryColor;
+					position: relative;
+					padding-left: 44px;
+					font-size: 14px;
+					letter-spacing: 0;
+					text-transform: none;
+				}
+				&.forgetmenot input#rememberme {
+					display: none;
+				}
+			}
+		}
+
+		form#lostpasswordform #wp-submit {
+			margin-top: 10px !important;
+		}
+		
+		p {
+			&#nav,
+			&#backtoblog {
+				display: inline-block;
+				margin: 0;
+				padding: 16px 0 0 0;
+			}
+			&#nav {
+				float: left;
+			}
+			&#backtoblog {
+				float: right;
+
+				a {
+					width: 138px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					text-align: right;
+				}
+			}
+			&#nav a, &#backtoblog a {
+				color: $primaryColor;
+				@include font-size(12px);
+				display: inline-block;
+			}
+			&.cptch_block br:first-child {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+!function(a,b){"use strict";function c(){e.className=e.className.match(/active/)?"":"active"}var d=a.querySelector(".forgetmenot"),e=d.firstChild;b.rememberme.checked&&c(),d.addEventListener("click",function(a){a.preventDefault(),c(),b.rememberme.checked=!b.rememberme.checked})}(document,window.loginform);
