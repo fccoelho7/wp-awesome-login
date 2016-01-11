@@ -156,5 +156,9 @@ body.login {
 				display: none;
 			}
 		}
+
+		.wp-core-ui .button-primary {
+			text-shadow: none;
+		}
 	}
 }
