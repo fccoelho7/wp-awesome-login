@@ -1,11 +1,11 @@
 <?php
 /*
-	Plugin Name: Apiki WP Custom Login
-	Plugin URI: http://apiki.com/
-	Author: Apiki
+	Plugin Name: WP Awesome Login
+	Plugin URI:
+	Author: Accácio Franklin and Fabio Carvalho
 	Version: 1.0
-	Author URI: http://apiki.com/
-	Description: Plugin que permite ao usuário customizar sua tela de login.
+	Author URI:
+	Description: Change the way that you login on WordPress.
 */
 
 namespace Apiki\Login;
