@@ -2,7 +2,7 @@
 /*
 	Plugin Name: WP Awesome Login
 	Plugin URI:
-	Author: Accácio Franklin and Fabio Carvalho
+	Author: Accácio Franklin, Fabio Carvalho and Elvis Henrique
 	Version: 1.0
 	Author URI:
 	Description: Change the way that you login on WordPress.
