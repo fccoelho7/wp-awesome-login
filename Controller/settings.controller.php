@@ -17,6 +17,11 @@ class Settings_Controller
 		add_action( 'wp_ajax_general_save_settings', array( &$this, 'save' ) );
 		add_filter( 'upload_mimes', array( &$this, 'available_svg_upload' ) );
 		add_action( 'login_head', array( 'Apiki\Login\Settings_View', 'render_config_css_inline' ) );
+		add_filter( 'login_headerurl', array( &$this, 'custom_login_header_url' ) );
+	}
+
+	public function custom_login_header_url( $url ) {
+		return home_url( '/' );
 	}
 
 	public function available_svg_upload( $svg_mime )
@@ -45,8 +50,8 @@ class Settings_Controller
 		endif;
 
 		$this->save_fields();
-		
-		Utils_Helper::success_server_json( 'config_save_success', 'Operação realizada com sucesso.' );		
+
+		Utils_Helper::success_server_json( 'config_save_success', 'Operação realizada com sucesso.' );
 		exit(1);
 	}
 
