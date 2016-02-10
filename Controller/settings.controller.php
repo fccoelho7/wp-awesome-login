@@ -1,5 +1,5 @@
 <?php
-namespace Apiki\Login;
+namespace WPA\Login;
 
 // Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
@@ -16,8 +16,15 @@ class Settings_Controller
 		add_action( 'admin_menu', array( &$this, 'menu' ) );
 		add_action( 'wp_ajax_general_save_settings', array( &$this, 'save' ) );
 		add_filter( 'upload_mimes', array( &$this, 'available_svg_upload' ) );
-		add_action( 'login_head', array( 'Apiki\Login\Settings_View', 'render_config_css_inline' ) );
+		add_action( 'login_head', array( 'WPA\Login\Settings_View', 'render_config_css_inline' ) );
 		add_filter( 'login_headerurl', array( &$this, 'custom_login_header_url' ) );
+		add_filter( 'plugin_action_links_' . App::plugin_basename_file(), array( &$this, 'add_action_links' ) );
+	}
+
+	public function add_action_links( $links )
+	{
+		$links[] = '<a href="' . admin_url( 'themes.php?page=' . App::PLUGIN_SLUG . '-settings-theme' ) . '">' . __( 'Settings', App::PLUGIN_SLUG ) . '</a>';
+		return $links;
 	}
 
 	public function custom_login_header_url( $url ) {
@@ -33,11 +40,11 @@ class Settings_Controller
 	public function menu()
 	{
 		add_theme_page(
-			'Configurar Tela de Login',
-			'Configurar Tela de Login',
+			'WP Awesome Login',
+			'WP Awesome Login',
 			'manage_options',
 			App::PLUGIN_SLUG . '-settings-theme',
-			array( 'Apiki\Login\Settings_View', 'render_general' )
+			array( 'WPA\Login\Settings_View', 'render_general' )
 		);
 	}
 

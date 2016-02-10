@@ -20,7 +20,7 @@
 
 	'use strict';
 
-	/* 
+	/*
 	 *	CONSTANTES
 	 */
 	var MESSAGE_HTML = '<div class="[type] render-message"><p><strong>[message]</strong></p></div>',
@@ -188,7 +188,7 @@
 	FieldHidden.prototype.isEmpty = function() {
 		return ( !this.value );
 	};
-	
+
 	var ComponentUpload = function(container) {
 		this.container        = container;
 		this.changeButtonText = this.container.data( 'attr-button-text' );
@@ -284,18 +284,18 @@
 
 })( jQuery, window );
 ;jQuery(function($) {
-	
+
 	'use strict';
 
 	var App = {
 		init : function() {
 
 		},
-		'appearance_page_apiki-wp-custom-login-settings-theme' : function() {
+		'appearance_page_wpal-settings-theme' : function() {
 			var form   = new ComponentForm( $( '[data-component="form"]' ) )
 			  , upload = new ComponentUpload( $( '[data-component="upload"]' ) )
 			;
-			
+
 			App.setColorPicker();
 		},
 		setColorPicker : function() {
@@ -310,5 +310,5 @@
 	};
 
 	dispatcher( App, window.pagenow, [ $( 'body' ) ] );
-	
+
 });

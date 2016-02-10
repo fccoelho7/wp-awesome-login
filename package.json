@@ -1,7 +1,7 @@
 {
-  "name": "apiki-wp-custom-login",
-  "version": "1.0.0",
-  "description": "Apiki WP Custom Login",
+  "name": "wp-awesome-login",
+  "version": "0.1.0",
+  "description": "WP Awesome Login",
   "webroot" : "assets/javascripts",
   "stylesheetroot" :"assets/stylesheets",
   "repository": {

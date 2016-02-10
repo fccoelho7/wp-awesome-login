@@ -1,13 +1,6 @@
 <?php
-/**
- * Setting
- *
- * @package Apiki WP Theme Options
- * @subpackage Setting
- */
-namespace Apiki\Login;
+namespace WPA\Login;
 
-// Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
 	exit(0);
 endif;
@@ -16,15 +9,15 @@ class Setting
 {
 	/**
 	 * Color Primary Hexa
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
 	 */
 	private $color_primary;
-	
+
 	/**
 	 * Color Secondary Hexa
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
 	 */
@@ -32,7 +25,7 @@ class Setting
 
 	/**
 	 * Color Tertiary Hexa
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
 	 */
@@ -40,7 +33,7 @@ class Setting
 
 	/**
 	 * Branding
-	 * 
+	 *
 	 * @since 1.0
 	 * @var int
 	 */
@@ -48,7 +41,7 @@ class Setting
 
 	/**
 	 * Branding Height
-	 * 
+	 *
 	 * @since 1.0
 	 * @var int
 	 */
@@ -56,36 +49,36 @@ class Setting
 
 	/**
 	 * Nonces
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	const NONCE_GENERAL_ACTION = 'apiki-setting-general-action';
-	
-	const NONCE_GENERAL_NAME   = 'apiki-setting-general-name';
-	
+	const NONCE_GENERAL_ACTION = 'wpal-setting-general-action';
+
+	const NONCE_GENERAL_NAME   = 'wpal-setting-general-name';
+
 	/**
 	 * Options
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	const OPTION_COLOR_PRIMARY = 'apiki-login-color-primary';
-	
-	const OPTION_COLOR_SECONDARY = 'apiki-login-color-secondary';
-	
-	const OPTION_COLOR_TERTIARY = 'apiki-login-color-tertiary';
-	
-	const OPTION_BRANDING = 'apiki-login-branding';
-	
-	const OPTION_BRANDING_HEIGHT = 'apiki-login-branding-height';
+	const OPTION_COLOR_PRIMARY = 'wpal-color-primary';
+
+	const OPTION_COLOR_SECONDARY = 'wpal-color-secondary';
+
+	const OPTION_COLOR_TERTIARY = 'wpal-color-tertiary';
+
+	const OPTION_BRANDING = 'wpal-branding';
+
+	const OPTION_BRANDING_HEIGHT = 'wpal-branding-height';
 
 	/**
 	 * Methods
-	 * 
+	 *
 	 * @since 1.0
 	 * @var string
-	 */	
+	 */
 	public function __get( $prop_name )
 	{
 		return $this->_get_property( $prop_name );

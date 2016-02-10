@@ -1,5 +1,5 @@
 <?php
-namespace Apiki\Login;
+namespace WPA\Login;
 
 // Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
@@ -14,50 +14,50 @@ class Settings_View
 
 		?>
 		<div class="wrap">
-			<h2>Configurar Tela de Login</h2>
+			<h2>WP Awesome Login</h2>
 
 			<form action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-component="form">
 				<table class="form-table">
 					<tbody>
 						<tr>
 							<th scope="row">
-								<label for="apiki-field-primary">Cor de Fundo</label>
+								<label for="wpal-field-primary"><?php _e( 'Background Color', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
 								<input data-component="color-picker"
 				   		               data-default-color="#eeeeee"
-				   		               type="text" id="apiki-field-primary"
+				   		               type="text" id="wpal-field-primary"
 								       name="<?php echo Setting::OPTION_COLOR_PRIMARY; ?>"
 									   value="<?php echo esc_html( $model->color_primary ); ?>">
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="apiki-field-secondary">Cor do Botão e Textos</label>
+								<label for="wpal-field-secondary"><?php _e( 'Color Button and Texts', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
 								<input data-component="color-picker"
 				   		               data-default-color="#00a0d2"
-				   		               type="text" id="apiki-field-secondary"
+				   		               type="text" id="wpal-field-secondary"
 								       name="<?php echo Setting::OPTION_COLOR_SECONDARY; ?>"
 									   value="<?php echo esc_html( $model->color_secondary ); ?>">
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="apiki-field-tertiary">Cor da Bordas</label>
+								<label for="wpal-field-tertiary"><?php _e( 'Border Color', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
 								<input data-component="color-picker"
 				   		               data-default-color="#777"
-				   		               type="text" id="apiki-field-tertiary"
+				   		               type="text" id="wpal-field-tertiary"
 								       name="<?php echo Setting::OPTION_COLOR_TERTIARY; ?>"
 									   value="<?php echo esc_html( $model->color_tertiary ); ?>">
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label>Imagem de Logo</label>
+								<label><?php _e( 'Logo Image', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
 								<button data-component="upload"
@@ -65,40 +65,41 @@ class Settings_View
 								        data-attr-hidden-value="<?php echo esc_attr( $model->branding ); ?>"
 								        data-attr-image-src="<?php echo esc_url( $model->get_branding_url( 'medium' ) ); ?>"
 							            data-attr-image-position="before"
-								        class="button" type="button">Configurar Imagem</button>
+										data-attr-remove-text="<?php echo esc_attr_e( 'Remove Logo', App::PLUGIN_SLUG ); ?>"
+								        class="button" type="button"><?php _e( 'Set Image', App::PLUGIN_SLUG ); ?></button>
 
-								<p class="description">A imagem deve ter o tamanho de 320px de largura para um melhor aproveitamento do espaço.</p>
+								<p class="description"><?php _e( 'The image should be the size of 320px wide for a better use of space.', App::PLUGIN_SLUG ); ?></p>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="apiki-field-branding-height">Altura da Imagem</label>
+								<label for="wpal-field-branding-height"><?php _e( 'Image Height', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
-								<input type="number" id="apiki-field-branding-height"
+								<input type="number" id="wpal-field-branding-height"
 								       name="<?php echo Setting::OPTION_BRANDING_HEIGHT; ?>"
 									   value="<?php echo intval( $model->branding_height ); ?>">
 
-								<p class="description">Defina a altura da imagem de acordo com sua logo, o valor será definido em <strong>pixel</strong>.</p>
+								<p class="description"><?php printf( __( 'Set the height of the image according to your logo, the value is defined in %spixels%s.', App::PLUGIN_SLUG  ), '<strong>', '</strong>' ) ?></p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 
 				<p class="submit">
-					<?php 
+					<?php
 						wp_nonce_field(
 							Setting::NONCE_GENERAL_ACTION,
 							Setting::NONCE_GENERAL_NAME
 						);
 					?>
-					
+
 					<input type="hidden" name="action" value="general_save_settings">
-					<input type="submit" class="button button-primary" value="Salvar" data-element="submit">
+					<input type="submit" class="button button-primary" value="<?php echo esc_attr_e( 'Save', App::PLUGIN_SLUG ); ?>" data-element="submit">
 				</p>
 			</form>
 		</div>
-		<?php	
+		<?php
 	}
 
 	public static function render_config_css_inline()
@@ -116,7 +117,7 @@ class Settings_View
 			html, body {
 				background-color: {$color_primary} !important;
 			}
-			
+
 			#lostpasswordform p label,
 			#lostpasswordform input#user_login,
 			#loginform p label,
@@ -135,7 +136,7 @@ class Settings_View
 			#loginform p.forgetmenot label:before {
 				border-color: {$color_tertiary} !important;
 			}
-			
+
 			#lostpasswordform p.submit input#wp-submit,
 			#loginform p.submit input#wp-submit {
 				background-color: {$color_secondary} !important;
@@ -151,7 +152,7 @@ class Settings_View
 
 		if ( $branding_url ) :
 			echo "
-			<style type=\"text/css\">	
+			<style type=\"text/css\">
 				body.login #login h1 a {
 					background: url({$branding_url}) no-repeat scroll center top transparent;
 					width: 320px;

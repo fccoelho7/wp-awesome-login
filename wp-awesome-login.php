@@ -1,14 +1,14 @@
 <?php
 /*
 	Plugin Name: WP Awesome Login
-	Plugin URI:
+	Plugin URI: https://github.com/fccoelho7/WP-Awesome-Login
 	Author: Accácio Franklin, Fabio Carvalho and Elvis Henrique
 	Version: 1.0
 	Author URI:
-	Description: Change the way that you login on WordPress.
+	Description: Change the way you log in to WordPress with a flat design and colors of your choice.
 */
 
-namespace Apiki\Login;
+namespace WPA\Login;
 
 // Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
@@ -17,7 +17,7 @@ endif;
 
 class App
 {
-	const PLUGIN_SLUG = 'apiki-wp-custom-login';
+	const PLUGIN_SLUG = 'wpal';
 
 	public static function uses( $class_name, $location )
 	{
@@ -50,6 +50,16 @@ class App
 	public static function filemtime( $path )
 	{
 		return filemtime( self::plugin_dir_path( $path ) );
+	}
+
+	public static function plugin_basename_file()
+	{
+		return plugin_basename( __FILE__ );
+	}
+
+	public static function load_textdomain()
+	{
+		load_plugin_textdomain( self::PLUGIN_SLUG, false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 	}
 }
 

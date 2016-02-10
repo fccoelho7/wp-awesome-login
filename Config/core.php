@@ -1,5 +1,5 @@
 <?php
-namespace Apiki\Login;
+namespace WPA\Login;
 
 // Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
@@ -14,10 +14,11 @@ class Core
 	public function __construct()
 	{
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );		
+		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 		add_action( 'login_enqueue_scripts', array( &$this, 'scripts_login' ) );
 		add_action( 'login_head', array( &$this, 'styles_login' ) );
-		
+		add_action( 'plugins_loaded', array( 'WPA\Login\App', 'load_textdomain' ) );
+
 		$settings = new Settings_Controller();
 	}
 
@@ -60,9 +61,9 @@ class Core
 	public function styles_admin()
 	{
 		wp_enqueue_style(
-			'admin-style-' . App::PLUGIN_SLUG, 
+			'admin-style-' . App::PLUGIN_SLUG,
 			App::plugins_url( '/admin.style.css' ),
-			array(),			
+			array(),
 			App::filemtime( 'admin.style.css' )
 		);
 	}
@@ -72,7 +73,7 @@ class Core
 		global $pagenow;
 
 		if ( did_action( 'wp_enqueue_media' ) )
-			return;	
+			return;
 
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'themes.php' ) ) )
 			wp_enqueue_media();

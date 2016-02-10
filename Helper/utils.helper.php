@@ -1,5 +1,5 @@
 <?php
-namespace Apiki\Login;
+namespace WPA\Login;
 
 // Avoid that files are directly loaded
 if ( ! function_exists( 'add_action' ) ) :
@@ -126,7 +126,7 @@ class Utils_Helper
 			$request_ajax = $_SERVER['HTTP_X_REQUESTED_WITH'];
 
 		return ( ! empty( $request_ajax ) && strtolower( $request_ajax ) == 'xmlhttprequest' );
-	}	
+	}
 
 	public static function get_user_agent()
 	{
@@ -254,5 +254,5 @@ class Utils_Helper
 
 			array_map( array( &$current_role, 'add_cap' ), $caps );
 		endforeach;
-	}	
+	}
 }
