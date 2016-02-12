@@ -7,6 +7,11 @@ body.login {
 		padding: 8% 0 0 0;
 		width: 320px;
 
+		a:focus {
+			color: transparent;
+			box-shadow: none;
+		}
+
 		#login_error {
 			background-color: #dd3d36;
 			border: none;
