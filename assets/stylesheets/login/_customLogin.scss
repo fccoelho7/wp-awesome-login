@@ -76,12 +76,14 @@ body.login {
 					line-height: 1em;
 					margin-top: 50px;
 					padding: 24px 52px 20px;
+					text-shadow: none;
 					@include transition(background .3s ease);
 					width: 100%;
 
 					&:hover {
 						color: $submitColor;
 						background-color: transparent !important;
+						text-shadow: none;
 					}
 				}
 				&.forgetmenot {
