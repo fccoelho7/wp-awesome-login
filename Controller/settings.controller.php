@@ -23,7 +23,7 @@ class Settings_Controller
 
 	public function add_action_links( $links )
 	{
-		$links[] = '<a href="' . admin_url( 'themes.php?page=' . App::PLUGIN_SLUG . '-settings-theme' ) . '">' . __( 'Settings', App::PLUGIN_SLUG ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'themes.php?page=wpal-settings-theme' ) . '">' . __( 'Settings', App::PLUGIN_SLUG ) . '</a>';
 		return $links;
 	}
 
@@ -43,7 +43,7 @@ class Settings_Controller
 			'WP Awesome Login',
 			'WP Awesome Login',
 			'manage_options',
-			App::PLUGIN_SLUG . '-settings-theme',
+			'wpal-settings-theme',
 			array( 'WPA\Login\Settings_View', 'render_general' )
 		);
 	}

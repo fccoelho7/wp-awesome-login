@@ -5,7 +5,7 @@
 	Author: Accácio Franklin, Fabio Carvalho and Elvis Henrique
 	Version: 0.2.0
 	Description: Change the way you log in to WordPress with a flat design and colors of your choice.
-	Text Domain: wpal
+	Text Domain: wp-awesome-login
 	Domain Path: /languages
 */
 
@@ -18,7 +18,7 @@ endif;
 
 class App
 {
-	const PLUGIN_SLUG = 'wpal';
+	const PLUGIN_SLUG = 'wp-awesome-login';
 
 	public static function uses( $class_name, $location )
 	{
