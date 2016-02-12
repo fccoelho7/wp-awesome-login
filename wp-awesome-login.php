@@ -5,6 +5,8 @@
 	Author: Accácio Franklin, Fabio Carvalho and Elvis Henrique
 	Version: 0.2.0
 	Description: Change the way you log in to WordPress with a flat design and colors of your choice.
+	Text Domain: wpal
+	Domain Path: /languages
 */
 
 namespace WPA\Login;
