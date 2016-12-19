@@ -1,7 +1,8 @@
 === WP Awesome Login ===
 Contributors: elvishp2006, kassyn, fccoelho7, luan-ramos
 Tags: admin, branding, custom login, custom login, customization, login, logo, login flat, flat design, flat, awesome login, beautiful login
-Tested up to: 4.4.1
+Tested up to: 4.7
+Stable Tag: 0.2.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
