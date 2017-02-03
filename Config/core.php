@@ -14,10 +14,9 @@ class Core
 	public function __construct()
 	{
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 		add_action( 'login_enqueue_scripts', array( &$this, 'scripts_login' ) );
 		add_action( 'login_head', array( &$this, 'styles_login' ) );
-		add_action( 'plugins_loaded', array( 'WPA\Login\App', 'load_textdomain' ) );
+		add_action( 'init', array( __NAMESPACE__ . '\App', 'load_textdomain' ) );
 
 		$settings = new Settings_Controller();
 	}
@@ -47,6 +46,10 @@ class Core
 
 	public function scripts_admin()
 	{
+		if ( ! Utils_Helper::is_plugin_page() ) {
+			return;
+		}
+
 		$this->load_wp_media();
 
 		wp_enqueue_script(
@@ -56,6 +59,8 @@ class Core
 			App::filemtime( 'assets/javascripts/admin.built.js' ),
 			true
 		);
+
+		$this->styles_admin();
 	}
 
 	public function styles_admin()

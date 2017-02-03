@@ -2,7 +2,7 @@
 Contributors: elvishp2006, kassyn, fccoelho7, luan-ramos
 Tags: admin, branding, custom login, custom login, customization, login, logo, login flat, flat design, flat, awesome login, beautiful login
 Tested up to: 4.7
-Stable Tag: 0.2.1
+Stable Tag: 0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -23,6 +23,11 @@ Are you tired of the WordPress login screen? Do you want login screen like the s
 4. Config screen
 
 == Changelog ==
+
+= 0.3 =
+
+* Bug fixes
+* Code improvements
 
 = 0.2.0 =
 

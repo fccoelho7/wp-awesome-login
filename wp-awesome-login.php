@@ -3,7 +3,7 @@
 	Plugin Name: WP Awesome Login
 	Plugin URI: https://github.com/fccoelho7/WP-Awesome-Login
 	Author: Accácio Franklin, Fabio Carvalho and Elvis Henrique
-	Version: 0.2.1
+	Version: 0.3
 	Description: Change the way you log in to WordPress with a flat design and colors of your choice.
 	Text Domain: wp-awesome-login
 	Domain Path: /languages
@@ -18,6 +18,8 @@ endif;
 
 class App
 {
+	const PLUGIN_NAME = 'WP Awesome Login';
+
 	const PLUGIN_SLUG = 'wp-awesome-login';
 
 	public static function uses( $class_name, $location )

@@ -74,6 +74,14 @@ class Setting
 	const OPTION_BRANDING_HEIGHT = 'wpal-branding-height';
 
 	/**
+	 * Page slug
+	 *
+	 * @since 0.3
+	 * @var String
+	 */
+	 const PAGE_SLUG = 'wpal-settings-theme';
+
+	/**
 	 * Methods
 	 *
 	 * @since 1.0
