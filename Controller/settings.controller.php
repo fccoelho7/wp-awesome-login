@@ -40,11 +40,11 @@ class Settings_Controller
 	public function menu()
 	{
 		add_theme_page(
-			'WP Awesome Login',
-			'WP Awesome Login',
+			App::PLUGIN_NAME,
+			App::PLUGIN_NAME,
 			'manage_options',
-			'wpal-settings-theme',
-			array( 'WPA\Login\Settings_View', 'render_general' )
+			Setting::PAGE_SLUG,
+			array( __NAMESPACE__ . '\Settings_View', 'render_general' )
 		);
 	}
 

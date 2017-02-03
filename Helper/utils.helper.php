@@ -31,21 +31,6 @@ class Utils_Helper
 		return strip_tags( $text, '<p><strong><span><br><a>' );
 	}
 
-   /**
-	* Change pipe for markup
-	*
-	* @return bool
-	*/
-	public static function title_pipe( $title, $element = 'strong' )
-	{
-		if ( strpos( $title, '|' ) === false )
-			return $title;
-
-		$title = explode( '|', $title );
-
-		return sprintf( "<{$element}>%s</{$element}>%s", trim( $title[0] ), $title[1] );
-	}
-
 	/**
 	 * Gets the post ID
 	 *
@@ -68,30 +53,6 @@ class Utils_Helper
 		endif;
 
 		return $post_id;
-	}
-
-   /**
-	* Retrieves the database charset do create new tables.
-	*
-	* @global type $wpdb
-	* @return type
-	*/
-	public static function get_charset()
-	{
-		global $wpdb;
-
-		$charset_collate = '';
-
-		if ( ! $wpdb->has_cap( 'collation' ) )
-			return;
-
-		if ( ! empty( $wpdb->charset ) )
-			$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-
-		if ( ! empty( $wpdb->collate ) )
-			$charset_collate .= "\nCOLLATE $wpdb->collate";
-
-		return $charset_collate;
 	}
 
 	/**
@@ -146,18 +107,13 @@ class Utils_Helper
 		return $attachment[0];
 	}
 
-	public static function get_query( $args = array(), $defaults = array() )
-	{
-		return new \WP_Query( wp_parse_args( $args, $defaults ) );
-	}
-
 	public static function get( $key, $default = '', $sanitize = 'esc_html' )
 	{
 		if ( ! isset( $_GET[ $key ] ) OR empty( $_GET[ $key ] ) )
 			return $default;
 
 		if ( is_array( $_GET[ $key ] ) )
-			return $_GET[ $key ];
+			return array_map( __METHOD__, $_GET[ $key ] );
 
 		return self::sanitize_type( $_GET[ $key ], $sanitize );
 	}
@@ -176,7 +132,7 @@ class Utils_Helper
 			return $default;
 
 		if ( is_array( $_POST[ $key ] ) )
-			return $_POST[ $key ];
+			return array_map( __METHOD__, $_POST[ $key ] );
 
 		return self::sanitize_type( $_POST[ $key ], $sanitize );
 	}
@@ -234,25 +190,13 @@ class Utils_Helper
 		echo $response;
 	}
 
-	public static function limit_text( $text, $limit, $more = '...' )
-	{
-		if ( strlen( $text ) > $limit )
-			$text = substr( $text, 0, $limit ) . $more;
-
-		return $text;
-	}
-
 	public static function json_decode_quoted( $data, $is_assoc = true )
 	{
 		return json_decode( str_replace( '&quot;', '"', $data ), $is_assoc );
 	}
 
-	public static function add_custom_capabilities( $roles, array $caps )
+	public static function is_plugin_page()
 	{
-		foreach ( (array)$roles as $role ) :
-			$current_role = get_role( $role );
-
-			array_map( array( &$current_role, 'add_cap' ), $caps );
-		endforeach;
+		return ( self::get( 'page' ) === Setting::PAGE_SLUG );
 	}
 }

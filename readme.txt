@@ -24,6 +24,11 @@ Are you tired of the WordPress login screen? Do you want login screen like the s
 
 == Changelog ==
 
+= 0.3 =
+
+* Bug fixes
+* Code improvements
+
 = 0.2.0 =
 
 * First public version.
