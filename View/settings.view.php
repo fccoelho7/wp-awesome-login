@@ -33,7 +33,7 @@ class Settings_View
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="wpal-field-secondary"><?php _e( 'Color Button and Texts', App::PLUGIN_SLUG ); ?></label>
+								<label for="wpal-field-secondary"><?php _e( 'Color Button', App::PLUGIN_SLUG ); ?></label>
 							</th>
 							<td>
 								<input data-component="color-picker"
@@ -41,6 +41,42 @@ class Settings_View
 				   		               type="text" id="wpal-field-secondary"
 								       name="<?php echo Setting::OPTION_COLOR_SECONDARY; ?>"
 									   value="<?php echo esc_html( $model->color_secondary ); ?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label for="wpal-field-secondary"><?php _e( 'Color Button Text', App::PLUGIN_SLUG ); ?></label>
+							</th>
+							<td>
+								<input data-component="color-picker"
+				   		               data-default-color="#ffffff"
+				   		               type="text" id="wpal-color-button-txt"
+								       name="<?php echo Setting::OPTION_COLOR_BUTTON_TXT; ?>"
+									   value="<?php echo esc_html( $model->color_button_txt ); ?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label for="wpal-field-secondary"><?php _e( 'Color Text', App::PLUGIN_SLUG ); ?></label>
+							</th>
+							<td>
+								<input data-component="color-picker"
+				   		               data-default-color="#00a0d2"
+				   		               type="text" id="wpal-color-txt"
+								       name="<?php echo Setting::OPTION_COLOR_TXT; ?>"
+									   value="<?php echo esc_html( $model->color_txt ); ?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label for="wpal-field-secondary"><?php _e( 'Color Form Text', App::PLUGIN_SLUG ); ?></label>
+							</th>
+							<td>
+								<input data-component="color-picker"
+				   		               data-default-color="#00a0d2"
+				   		               type="text" id="wpal-color-form-txt"
+								       name="<?php echo Setting::OPTION_COLOR_FORM_TXT; ?>"
+									   value="<?php echo esc_html( $model->color_form_txt ); ?>">
 							</td>
 						</tr>
 						<tr>
@@ -104,13 +140,16 @@ class Settings_View
 
 	public static function render_config_css_inline()
 	{
-		$model           = new Setting();
-		$color_primary   = htmlentities( $model->color_primary );
-		$color_secondary = htmlentities( $model->color_secondary );
-		$color_tertiary  = htmlentities( $model->color_tertiary );
-		$branding_url    = htmlentities( $model->get_branding_url() );
-		$branding_height = htmlentities( $model->branding_height );
-		$margin_top      = round( $branding_height / 3, 2 ) * -1;
+		$model               = new Setting();
+		$color_primary       = htmlentities( $model->color_primary );
+		$color_secondary     = htmlentities( $model->color_secondary );
+		$color_button_txt    = htmlentities( $model->color_button_txt );
+		$color_txt           = htmlentities( $model->color_txt );
+		$color_form_txt      = htmlentities( $model->color_form_txt );
+		$color_tertiary      = htmlentities( $model->color_tertiary );
+		$branding_url        = htmlentities( $model->get_branding_url() );
+		$branding_height     = htmlentities( $model->branding_height );
+		$margin_top          = round( $branding_height / 3, 2 ) * -1;
 
 		echo "
 		<style type=\"text/css\">
@@ -118,16 +157,20 @@ class Settings_View
 				background-color: {$color_primary} !important;
 			}
 
-			#lostpasswordform p label,
-			#lostpasswordform input#user_login,
+			#lostpasswordform p label,			
 			#loginform p label,
-			#loginform input#user_login,
-			#loginform input#user_pass,
 			#loginform p.forgetmenot label,
 			#login p#nav a,
 			#login p#backtoblog a,
-			#login form#loginform p.cptch_block {
-				color: {$color_secondary} !important;
+			#loginform p.cptch_block {
+				color: {$color_txt} !important;
+			}
+
+			#lostpasswordform input#user_login,
+			#loginform input#user_login,
+			#loginform input#user_pass, 
+			#login form {
+				color: {$color_form_txt} !important;
 			}
 
 			#lostpasswordform input#user_login,
@@ -141,6 +184,7 @@ class Settings_View
 			#loginform p.submit input#wp-submit {
 				background-color: {$color_secondary} !important;
 				border-color: {$color_secondary} !important;
+				color: {$color_button_txt} !important;
 			}
 
 			#lostpasswordform p.submit input#wp-submit:hover,
