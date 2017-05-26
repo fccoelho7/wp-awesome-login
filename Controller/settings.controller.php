@@ -64,11 +64,14 @@ class Settings_Controller
 
 	public function save_fields()
 	{
-		$model                  = new Setting();
-		$model->color_primary   = Utils_Helper::post( Setting::OPTION_COLOR_PRIMARY, false, 'esc_html' );
-		$model->color_secondary = Utils_Helper::post( Setting::OPTION_COLOR_SECONDARY, false, 'esc_html' );
-		$model->color_tertiary  = Utils_Helper::post( Setting::OPTION_COLOR_TERTIARY, false, 'esc_html' );
-		$model->branding        = Utils_Helper::post( Setting::OPTION_BRANDING, false, 'intval' );
-		$model->branding_height = Utils_Helper::post( Setting::OPTION_BRANDING_HEIGHT, false, 'intval' );
+		$model                   = new Setting();
+		$model->color_primary    = Utils_Helper::post( Setting::OPTION_COLOR_PRIMARY, false, 'esc_html' );
+		$model->color_secondary  = Utils_Helper::post( Setting::OPTION_COLOR_SECONDARY, false, 'esc_html' );
+		$model->color_button_txt = Utils_Helper::post( Setting::OPTION_COLOR_BUTTON_TXT, false, 'esc_html' );
+		$model->color_txt        = Utils_Helper::post( Setting::OPTION_COLOR_TXT, false, 'esc_html' );
+		$model->color_form_txt   = Utils_Helper::post( Setting::OPTION_COLOR_FORM_TXT, false, 'esc_html' );
+		$model->color_tertiary   = Utils_Helper::post( Setting::OPTION_COLOR_TERTIARY, false, 'esc_html' );
+		$model->branding         = Utils_Helper::post( Setting::OPTION_BRANDING, false, 'intval' );
+		$model->branding_height  = Utils_Helper::post( Setting::OPTION_BRANDING_HEIGHT, false, 'intval' );
 	}
 }

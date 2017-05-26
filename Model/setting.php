@@ -24,6 +24,30 @@ class Setting
 	private $color_secondary;
 
 	/**
+	 * Color Secondary Text Button Hexa
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $color_button_txt;
+
+	/**
+	 * Color Text Hexa
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $color_txt;
+
+	/**
+	 * Color Form Text Hexa
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $color_form_txt;
+
+	/**
 	 * Color Tertiary Hexa
 	 *
 	 * @since 1.0
@@ -64,13 +88,19 @@ class Setting
 	 * @var string
 	 */
 	const OPTION_COLOR_PRIMARY = 'wpal-color-primary';
-
+	
 	const OPTION_COLOR_SECONDARY = 'wpal-color-secondary';
-
+	
+	const OPTION_COLOR_BUTTON_TXT = 'wpal-color-button-txt';
+	
+	const OPTION_COLOR_TXT = 'wpal-color-txt';
+	
+	const OPTION_COLOR_FORM_TXT = 'wpal-color-form-txt';
+	
 	const OPTION_COLOR_TERTIARY = 'wpal-color-tertiary';
-
+	
 	const OPTION_BRANDING = 'wpal-branding';
-
+	
 	const OPTION_BRANDING_HEIGHT = 'wpal-branding-height';
 
 	/**
@@ -113,6 +143,18 @@ class Setting
 				update_option( self::OPTION_COLOR_SECONDARY, $value );
 				break;
 
+			case 'color_button_txt' :
+				update_option( self::OPTION_COLOR_BUTTON_TXT, $value );
+				break;
+
+			case 'color_txt' :
+				update_option( self::OPTION_COLOR_TXT, $value );
+				break;
+
+			case 'color_form_txt' :
+				update_option( self::OPTION_COLOR_FORM_TXT, $value );
+				break;
+
 			case 'color_tertiary' :
 				update_option( self::OPTION_COLOR_TERTIARY, $value );
 				break;
@@ -139,6 +181,21 @@ class Setting
 			case 'color_secondary' :
 				if ( ! isset( $this->color_secondary ) )
 					$this->color_secondary = get_option( self::OPTION_COLOR_SECONDARY, '#00a0d2' );
+				break;
+
+			case 'color_button_txt' :
+				if ( ! isset( $this->color_button_txt ) )
+					$this->color_button_txt = get_option( self::OPTION_COLOR_BUTTON_TXT, '#ffffff' );
+				break;
+
+			case 'color_txt' :
+				if ( ! isset( $this->color_txt ) )
+					$this->color_txt = get_option( self::OPTION_COLOR_TXT, '#00a0d2' );
+				break;
+
+			case 'color_form_txt' :
+				if ( ! isset( $this->color_form_txt ) )
+					$this->color_form_txt = get_option( self::OPTION_COLOR_FORM_TXT, '#00a0d2' );
 				break;
 
 			case 'color_tertiary' :
